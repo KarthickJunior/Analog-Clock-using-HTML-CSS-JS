@@ -1,0 +1,178 @@
+html {
+    background: #5A96E3;
+  }
+
+.clock {
+    width: 30rem;
+    height: 30rem;
+    border: 5px solid black;
+    
+    /* Important line of code for the Clock Figure */
+    box-shadow: -4px -4px 10px rgba(67,67,67,0.5),
+                  inset 4px 4px 10px rgba(0,0,0,0.5),
+                  inset -4px -4px 10px rgba(67,67,67,0.5),
+                  4px 4px 10px rgba(0,0,0,0.3);
+  
+    /* Important line of code - gives circular shapeed
+       Without it, we will get square shaped clock*/
+    
+    border-radius: 50%;
+    margin: 50px auto;
+  
+    position: relative;
+    left:30px;
+
+  }
+
+  .outer-clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background: black;
+
+    overflow: hidden;
+  }
+  
+  /*The -webkit-transform property accepts a list of "transform functions" as values. 
+    These transform functions have names such as scale() , rotate() , skew() , etc, 
+    which accept parameters to determine the level of transformation (for example, the angle to rotate an element). */
+
+  
+  /*The -mozkit-transform property accepts a list of "transform functions" as values. 
+    These transform functions have names such as scale() , rotate() , skew() , etc, 
+    which accept parameters to determine the level of transformation (for example, the angle to rotate an element). */
+
+
+  .outer-clock-face::after {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg)
+  }
+  
+
+  /* The ::before does a certain commands/functions before the specified element/class */
+
+  /* The ::after does a certain commands/functions after the specified element/class */
+
+  /* .marking is used to mark the 12 points inside the clock */
+
+  .outer-clock-face::before,
+  .outer-clock-face::after,
+  .outer-clock-face .marking{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background: black;
+    z-index: 0;
+    left: 49%;
+  }
+  
+  .outer-clock-face .marking {
+    background: black;
+    width: 5px;
+  }
+  
+  /* 30 degree rotation from 12'O Clock position */
+
+  .outer-clock-face .marking.marking-one {
+    /*-webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);*/
+    transform: rotate(30deg)
+  }
+  
+  /* 60 degree rotation from 12'O Clock position */
+
+  .outer-clock-face .marking.marking-two {
+    /*-webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);*/
+    transform: rotate(60deg)
+  }
+  
+  /* 120 degree rotation from 12'O Clock position */
+
+  .outer-clock-face .marking.marking-three {
+    /*-webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);*/
+    transform: rotate(120deg)
+  }
+  
+  /* 150 degree rotation from 12'O Clock position */
+
+  .outer-clock-face .marking.marking-four {
+    /*-webkit-transform: rotate(150deg);
+    -moz-transform: rotate(150deg);*/
+    transform: rotate(150deg)
+  }
+
+  /* This code makes the length of the Hour, Min, Sec hands to be enlongated */
+  
+  .inner-clock-face {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: white;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    z-index: 1;
+  }
+
+  /* The ::before does a certain commands/functions before the specified element/class */
+
+  /* This code brings up the nob/circle that connects all the hands of the clock */
+
+ .inner-clock-face::before {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: black;
+  z-index: 11;
+
+}
+  
+  /* For the hands of the clock */
+
+  .hand {
+    width: 50%;
+    right: 50%;
+    height: 8px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    border-radius: 6px;
+    transform-origin: 100%;
+  }
+
+  /* For the "hour" hand of the clock */
+
+  .hand.hour-hand {
+    width: 30%;
+  }
+
+  /* For the "min" hand of the clock */
+
+  .hand.min-hand {
+    height: 3px;
+    width: 40%;
+  }
+
+  /* For the "second" hand of the clock */
+
+  .hand.second-hand {
+    background: #ee791a;
+    width: 40%;
+    height: 2px;
+  }
+
